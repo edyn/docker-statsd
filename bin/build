@@ -5,7 +5,7 @@ set -e
 export DEBIAN_FRONTEND=noninteractive
 
 apt-get update -q
-apt-get install -y curl unzip nodejs npm
+apt-get install -y curl unzip
 
 # Install statsd
 cd /opt
@@ -16,6 +16,6 @@ rm statsd.zip
 
 # Install some common backends.
 cd /opt/statsd
+
 npm config set registry http://registry.npmjs.org/
 npm install statsd-librato-backend
-npm install statsd-influxdb-backend

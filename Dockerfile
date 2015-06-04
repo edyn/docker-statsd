@@ -1,5 +1,5 @@
-FROM ubuntu:12.04
-MAINTAINER Eric Holmes <eric@ejholmes.io>
+FROM node:0.12
+MAINTAINER Mamadou Bobo Diallo <bobo@edyn.com>
 
 ADD ./bin/build /bin/build
 RUN /bin/build
