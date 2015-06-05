@@ -8,7 +8,7 @@ Start up statsd
 
 ```bash
 $ docker run --rm --name statsd -v $PWD/config.js:/opt/statsd/config.js:ro \
-  -p 8125:8125/udp -p 8126:8126 ejholmes/statsd
+  -p 8125:8125/udp -p 8126:8126 edyn/statsd
 ```
 
 Send some metrics to it:
