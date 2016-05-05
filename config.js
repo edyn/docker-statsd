@@ -105,7 +105,7 @@ Optional Variables:
                          changes. The default is true. Set this to false to disable.
 */
 {
-  debug: true,
+  debug: false,
   port: 8125,
   flushInterval: 20,
   deleteIdleStats: true,
