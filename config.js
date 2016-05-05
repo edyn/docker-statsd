@@ -107,17 +107,18 @@ Optional Variables:
 {
   debug: false,
   port: 8125,
+  mgmt_port: 8126,
   flushInterval: 20,
   deleteIdleStats: true,
   percentThreshold: [0.9, 0.95, 0.99],
 
   librato: {
-    email:  `${process.env.LIBRATO_EMAIL}`,
-    token:  `${process.env.LIBRATO_EMAIL}`,
+    email:  `${process.env.LIBRATO_USER}`,
+    token:  `${process.env.LIBRATO_TOKEN}`,
     source: `${process.env.LIBRATO_SOURCE}`,
     countersAsGauges: true,
   },
 
 
-  backends: [ "./backends/console", "statsd-librato-backend" ]
+  backends: ["statsd-librato-backend"]
 }
