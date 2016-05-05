@@ -1,5 +1,5 @@
 build/container: Dockerfile bin/build
-	docker build --no-cache -t statsd .
+	docker build -t edyn/statsd .
 	touch build/container
 
 .PHONY: clean
