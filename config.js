@@ -117,6 +117,7 @@ Optional Variables:
     token:  `${process.env.LIBRATO_TOKEN}`,
     source: `${process.env.LIBRATO_SOURCE}`,
     countersAsGauges: false,
+    alwaysSuffixPercentile: true
   },
 
 
