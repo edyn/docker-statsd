@@ -110,7 +110,7 @@ Optional Variables:
   mgmt_port: 8126,
   flushInterval: 20,
   deleteIdleStats: true,
-  percentThreshold: [0.9, 0.95, 0.99],
+  percentThreshold: [90, 95, 99],
 
   librato: {
     email:  `${process.env.LIBRATO_USER}`,
