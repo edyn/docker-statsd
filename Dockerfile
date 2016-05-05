@@ -1,4 +1,4 @@
-FROM node:0.12
+FROM node:4.2
 MAINTAINER Mamadou Bobo Diallo <bobo@edyn.com>
 
 ADD ./bin/build /bin/build
