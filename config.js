@@ -116,7 +116,7 @@ Optional Variables:
     email:  `${process.env.LIBRATO_USER}`,
     token:  `${process.env.LIBRATO_TOKEN}`,
     source: `${process.env.LIBRATO_SOURCE}`,
-    countersAsGauges: true,
+    countersAsGauges: false,
   },
 
 
