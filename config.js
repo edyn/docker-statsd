@@ -108,7 +108,7 @@ Optional Variables:
   debug: false,
   port: 8125,
   mgmt_port: 8126,
-  flushInterval: 20,
+  flushInterval: 60,
   deleteIdleStats: true,
   percentThreshold: [90, 95, 99],
 
