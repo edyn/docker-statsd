@@ -105,21 +105,16 @@ Optional Variables:
                          changes. The default is true. Set this to false to disable.
 */
 {
-  debug: false,
   port: 8125,
   mgmt_port: 8126,
-  flushInterval: 60,
   deleteIdleStats: true,
-  percentThreshold: [90, 95, 99],
-
-  librato: {
-    email:  `${process.env.LIBRATO_USER}`,
-    token:  `${process.env.LIBRATO_TOKEN}`,
-    source: `${process.env.LIBRATO_SOURCE}`,
-    countersAsGauges: false,
-    alwaysSuffixPercentile: true
-  },
+  repeater: [
+    {
+      host: `${process.env.REPEATER_HOST}`,
+      port: `${process.env.REPEATER_PORT}`
+    }
+  ],
 
 
-  backends: ["statsd-librato-backend"]
+  backends: ["./backends/repeater"]
 }
