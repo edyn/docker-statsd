@@ -18,4 +18,4 @@ rm statsd.zip
 cd /opt/statsd
 
 npm config set registry http://registry.npmjs.org/
-npm install statsd-librato-backend
+npm install ecstasy2/statsd-librato-backend
