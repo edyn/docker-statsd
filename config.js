@@ -111,7 +111,7 @@ Optional Variables:
     debug: process.env.NODE_ENV ==='dev' || false,
     port: 8125,
     mgmt_port: 8126,
-    flushInterval: 10 * 1000,
+    flushInterval: 60,
     deleteIdleStats: true,
     percentThreshold: [95, 99],
 
