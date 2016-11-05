@@ -19,3 +19,4 @@ cd /opt/statsd
 
 npm config set registry http://registry.npmjs.org/
 npm install ecstasy2/statsd-librato-backend
+npm install statsd-datadog-backend
