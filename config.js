@@ -104,22 +104,50 @@ Optional Variables:
   automaticConfigReload: whether to watch the config file and reload it when it
                          changes. The default is true. Set this to false to disable.
 */
-{
-  debug: false,
-  port: 8125,
-  mgmt_port: 8126,
-  flushInterval: 60,
-  deleteIdleStats: true,
-  percentThreshold: [90, 95, 99],
-
-  librato: {
-    email:  `${process.env.LIBRATO_USER}`,
-    token:  `${process.env.LIBRATO_TOKEN}`,
-    source: `${process.env.LIBRATO_SOURCE}`,
-    countersAsGauges: false,
-    alwaysSuffixPercentile: true
-  },
 
 
-  backends: ["statsd-librato-backend"]
-}
+(function () {
+  var config = {
+    debug: process.env.NODE_ENV ==='dev' || false,
+    port: 8125,
+    mgmt_port: 8126,
+    flushInterval: 10 * 1000,
+    deleteIdleStats: true,
+    percentThreshold: [95, 99],
+
+    backends: []
+  };
+
+  if (config.debug) {
+    config.backends.push('./backends/console');
+  }
+
+  if (process.env.LIBRATO_USER) {
+    config['librato'] = {
+      email:  `${process.env.LIBRATO_USER}`,
+      token:  `${process.env.LIBRATO_TOKEN}`,
+      source: `${process.env.LIBRATO_SOURCE}`,
+      countersAsGauges: false,
+      alwaysSuffixPercentile: true
+    };
+
+    config.backends.push('statsd-librato-backend');
+  }
+
+  if (process.env.DATADOG_API_KEY) {
+    config['datadogApiKey'] = process.env.DATADOG_API_KEY;
+    config.backends.push('statsd-datadog-backend');
+
+    config['datadogTags'] = ['source:statsd'];
+
+    if (process.env.NODE_ENV) {
+      config['datadogTags'].push('env:' + process.env.NODE_ENV);
+    }
+  }
+
+  if (process.env.DATADOG_PREFIX) {
+    config['datadogPrefix'] = process.env.DATADOG_PREFIX;
+  }
+  console.log(config);
+  return config;
+})();
